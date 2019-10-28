@@ -1,0 +1,13 @@
+.app-container {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 80px;
+}
+
+.app-toolbar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
