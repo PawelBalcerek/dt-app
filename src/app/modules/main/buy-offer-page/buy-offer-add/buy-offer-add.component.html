@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Add buy offer</h1>
+<div mat-dialog-content>
+  <div class="example-container">
+    <mat-form-field>
+      <input type="number" [(ngModel)]="buyOffer.amount" matInput placeholder="Amount" name="amount">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="number" [(ngModel)]="buyOffer.maxPrice" matInput placeholder="Price" name="maxPrice">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Company" [(ngModel)]="buyOffer.companyId" name="companyId">
+        <mat-option *ngFor="let company of (data|async)" [value]="company.id">{{company.name}}</mat-option>
+
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-flat-button color="warning" (click)="onNoClick()">Cancel</button>
+  <button mat-flat-button color="primary" [mat-dialog-close]="buyOffer" cdkFocusInitial> Add buy offer</button>
+</div>
