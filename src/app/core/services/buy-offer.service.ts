@@ -13,7 +13,7 @@ export class BuyOfferService {
   constructor(private http: HttpClient) { }
 
   public getBuyOffers(){
-    let api = environment.apiUrl + "buy-offers"
+    let api = environment.apiUrl + "users/buy-offers"
     this.http.get<BuyOffer[]>(api)
       .subscribe((data:any)=>{
         let buyOffers:BuyOffer[] = data.buyOffers;
@@ -25,16 +25,20 @@ export class BuyOfferService {
     let api = environment.apiUrl + "buy-offers"
     this.http.post<BuyOffer[]>(api, buyOffer)
       .subscribe((data:any)=>{
-        this._buyOffers.next( [... this._buyOffers.value.concat( buyOffer ) ]);
+        //API nie zwraca utworzonego obiektu 
+        //this._buyOffers.next( [... this._buyOffers.value.concat( buyOffer ) ]);
+        this.getBuyOffers();
       })
     
   }
 
   public withdrawBuyOffer(buyOffer: BuyOffer){
-    this._buyOffers.value.forEach(x=> {
-      if(x.id == buyOffer.id){
-        x.isValid = false;
-      }
-    })
+    let api = environment.apiUrl + "buy-offers/" + buyOffer.id;
+    this.http.put(api, null)
+      .subscribe((data:any)=>{
+        this.getBuyOffers();
+      })
+
+
   }
 }

@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Route, Router } from '@angular/router';
+import { User } from 'src/app/shared/models/User.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,10 @@ export class AuthService {
   private JWT_KEY = "JWT";
   private authenticated: BehaviorSubject<boolean> = new BehaviorSubject(false);
   public readonly authenticated_0 = this.authenticated.asObservable();
+
+  private _user: BehaviorSubject<User> = new BehaviorSubject(null);
+  public readonly user_0: Observable<User> = this._user.asObservable();
+
 
   constructor(private http: HttpClient, 
               private router: Router) { }
@@ -24,33 +29,59 @@ export class AuthService {
         console.log("jwt: " + jwtToken);
         this.setJWT( jwtToken );
         this.authenticated.next( true );
-
+        this.getUser(); 
         this.router.navigate(["/main/user"]);
+      },(error)=>{
+        this.router.navigate(["login"], {queryParams: {loginFailure:true}})
       })
   }
 
   public checkAuth(){
     if(localStorage.getItem(this.JWT_KEY)!=null){
-      this.authenticated.next( true );
+      this.getUser();      
     }else{
-      this.authenticated.next( false );
+      this.logout();
     }
   }
 
-  public logout(){
+  public getUser(){
+    let api = environment.apiUrl + "users"  
+    this.http.get<User>(api)
+      .subscribe((data:any)=>{
+        let user:User = data.user;
+        this._user.next( user );
+        this.authenticated.next( true );
+      }, 
+      (error)=>{
+        this.logout();
+      })
+  }
+
+  public logoutUser(){
     let api = environment.apiUrl + "logout"
     this.http.get(api)
       .subscribe((data:any)=>{
-        this.deleteJWT();
-        this.authenticated.next( false );
-        this.router.navigate(["/login"]);
+        this.logout();
       },
       (error)=>{
-        this.router.navigate(["/login"]);
-        this.deleteJWT();
-        this.authenticated.next( false );
+        this.logout();
       })
   } 
+
+  private logout(){
+    this.authenticated.next( false );
+    this._user.next( null );
+    this.deleteJWT();
+    this.router.navigate(["/login"]);
+  }
+
+  public register(user:User){
+    let api = environment.apiUrl + "users"  
+    this.http.post(api, user)
+      .subscribe(()=>{
+        this.router.navigate(["/login"])
+      })
+  }
 
   public getJWT():string {
     return localStorage.getItem( this.JWT_KEY );

@@ -10,13 +10,15 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { LoginPageComponent } from './core/login-page/login-page.component';
 import { JWTInterceptor } from './core/interceptors/JWTInterceptor';
+import { RegisterPageComponent } from './core/register-page/register-page.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TopNavComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    RegisterPageComponent
   ],
   imports: [
     BrowserModule,
