@@ -1,9 +1,12 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row>
       <span>dt-app</span>
-      <a mat-raised-button routerLink="main/home">Home</a>
-      <a mat-raised-button routerLink="main/user" color="accent" >Account</a>
-      <a mat-raised-button routerLink="main/sell-offer" color="accent" >Sell Offer</a>
-      <a mat-raised-button routerLink="main/buy-offer" color="accent" >Buy Offer</a>
+      <a *ngIf="!(authService.authenticated_0|async)" mat-raised-button  routerLink="login">Login</a>
+      <a *ngIf="!(authService.authenticated_0|async)" mat-raised-button routerLink="register">Register</a>
+      <a *ngIf="authService.authenticated_0|async" mat-raised-button routerLink="main/home">Home</a>
+      <a *ngIf="authService.authenticated_0|async" mat-raised-button routerLink="main/user" color="accent" >Account</a>
+      <a *ngIf="authService.authenticated_0|async" mat-raised-button routerLink="main/sell-offer" color="accent" >Sell Offer</a>
+      <a *ngIf="authService.authenticated_0|async"  mat-raised-button routerLink="main/buy-offer" color="accent" >Buy Offer</a>
+      <button *ngIf="authService.authenticated_0|async" mat-flat-button color="warn" (click)="logout()"> Log Out </button>
     </mat-toolbar-row>
 </mat-toolbar>

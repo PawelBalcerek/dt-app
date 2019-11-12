@@ -12,12 +12,5 @@ export class UserService {
   constructor() {
     
   }
-
-  getUser(){
-    let user: User = {email: 'test@gmail.com', name:'test'}; 
-    this._user.next( user );
-
-  }
-
   
 }

@@ -27,7 +27,7 @@ export class BuyOfferAddComponent implements OnInit {
   }
 
   getInitBuyOffer() {
-    return { amount: 0, date: new Date(), id: null, maxPrice: 0, resourceId: null, isValid: true, companyId: null };
+    return { amount: 0, date: new Date(), id: null, price: 0, resourceId: null, isValid: true, companyId: null };
   }
 
 }

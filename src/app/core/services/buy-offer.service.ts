@@ -13,30 +13,32 @@ export class BuyOfferService {
   constructor(private http: HttpClient) { }
 
   public getBuyOffers(){
-    let api = environment.apiUrl + "BuyOffers"
+    let api = environment.apiUrl + "users/buy-offers"
     this.http.get<BuyOffer[]>(api)
-      .subscribe((buyOffers:BuyOffer[])=>{
+      .subscribe((data:any)=>{
+        let buyOffers:BuyOffer[] = data.buyOffers;
         this._buyOffers.next( buyOffers )
       })
-  //   let buyOffers = [{    id: 1,
-  //     amount: 1,
-  //     resourceId: 2,
-  //     maxPrice: 11,
-  //     date: new Date(),
-  //     isValid: true}]
-
-  //   this._buyOffers.next( buyOffers );
   }
 
   public addBuyOffer(buyOffer:BuyOffer){
-    this._buyOffers.next( [... this._buyOffers.value.concat( buyOffer ) ]);
+    let api = environment.apiUrl + "buy-offers"
+    this.http.post<BuyOffer[]>(api, buyOffer)
+      .subscribe((data:any)=>{
+        //API nie zwraca utworzonego obiektu 
+        //this._buyOffers.next( [... this._buyOffers.value.concat( buyOffer ) ]);
+        this.getBuyOffers();
+      })
+    
   }
 
   public withdrawBuyOffer(buyOffer: BuyOffer){
-    this._buyOffers.value.forEach(x=> {
-      if(x.id == buyOffer.id){
-        x.isValid = false;
-      }
-    })
+    let api = environment.apiUrl + "buy-offers/" + buyOffer.id;
+    this.http.put(api, null)
+      .subscribe((data:any)=>{
+        this.getBuyOffers();
+      })
+
+
   }
 }

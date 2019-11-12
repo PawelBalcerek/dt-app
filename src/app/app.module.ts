@@ -6,14 +6,19 @@ import { AppComponent } from './app.component';
 import { TopNavComponent } from './core/navigation/top-nav/top-nav.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterializeModule } from './shared/angular-materialize/angular-materialize.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { LoginPageComponent } from './core/login-page/login-page.component';
+import { JWTInterceptor } from './core/interceptors/JWTInterceptor';
+import { RegisterPageComponent } from './core/register-page/register-page.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    TopNavComponent
+    TopNavComponent,
+    LoginPageComponent,
+    RegisterPageComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +30,13 @@ import { FormsModule } from '@angular/forms';
   ],exports:[
     FormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JWTInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
