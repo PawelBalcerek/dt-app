@@ -13,23 +13,21 @@ export class BuyOfferService {
   constructor(private http: HttpClient) { }
 
   public getBuyOffers(){
-    let api = environment.apiUrl + "BuyOffers"
+    let api = environment.apiUrl + "buy-offers"
     this.http.get<BuyOffer[]>(api)
-      .subscribe((buyOffers:BuyOffer[])=>{
+      .subscribe((data:any)=>{
+        let buyOffers:BuyOffer[] = data.buyOffers;
         this._buyOffers.next( buyOffers )
       })
-  //   let buyOffers = [{    id: 1,
-  //     amount: 1,
-  //     resourceId: 2,
-  //     maxPrice: 11,
-  //     date: new Date(),
-  //     isValid: true}]
-
-  //   this._buyOffers.next( buyOffers );
   }
 
   public addBuyOffer(buyOffer:BuyOffer){
-    this._buyOffers.next( [... this._buyOffers.value.concat( buyOffer ) ]);
+    let api = environment.apiUrl + "buy-offers"
+    this.http.post<BuyOffer[]>(api, buyOffer)
+      .subscribe((data:any)=>{
+        this._buyOffers.next( [... this._buyOffers.value.concat( buyOffer ) ]);
+      })
+    
   }
 
   public withdrawBuyOffer(buyOffer: BuyOffer){

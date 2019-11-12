@@ -14,11 +14,12 @@ export class CompanyService {
   constructor(private http: HttpClient) { }
 
   public getCompanies(){
-    let api = environment.apiUrl + "Companies"; 
+    let api = environment.apiUrl + "companies"; 
 
     this.http.get<Company[]>( api )
-      .subscribe((comanies: Company[])=>{
-        this._companies.next( comanies );
+      .subscribe((data:any)=>{
+        let companies: Company[] = data.companies;
+        this._companies.next( companies );
       });
   }
 }

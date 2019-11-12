@@ -2,7 +2,7 @@ export interface BuyOffer {
     id: number;
     amount: number;
     resourceId: number;
-    maxPrice: number;
+    price: number;
     date: Date;
     isValid: boolean;
     companyId:number;
