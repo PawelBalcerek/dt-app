@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { TopNavComponent } from './core/navigation/top-nav/top-nav.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterializeModule } from './shared/angular-materialize/angular-materialize.module';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -16,7 +19,11 @@ import { AngularMaterializeModule } from './shared/angular-materialize/angular-m
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule, 
-    AngularMaterializeModule
+    AngularMaterializeModule, 
+    HttpClientModule,
+    FormsModule
+  ],exports:[
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
