@@ -5,6 +5,7 @@ import { UserPageComponent } from './user-page/user-page.component';
 import { SellOfferPageComponent } from './sell-offer-page/sell-offer-page.component';
 import { BuyOfferPageComponent } from './buy-offer-page/buy-offer-page.component';
 import { BuyOfferAddComponent } from './buy-offer-page/buy-offer-add/buy-offer-add.component';
+import { ResourcePageComponent } from './resource-page/resource-page.component';
 
 const routes: Routes = [
   { path: 'home', component: HomePageComponent }, 
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'buy-offer', component: BuyOfferPageComponent, children:[
     { path: 'add', component: BuyOfferAddComponent }
   ] },
+  {path: 'resource', component: ResourcePageComponent}
   ];
 
 @NgModule({
