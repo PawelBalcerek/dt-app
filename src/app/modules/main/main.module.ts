@@ -12,10 +12,11 @@ import { BuyOfferTableComponent } from './buy-offer-page/buy-offer-table/buy-off
 import { BuyOfferAddComponent } from './buy-offer-page/buy-offer-add/buy-offer-add.component'
 import { FormsModule } from '@angular/forms';
 import { SellOfferAddComponent } from './sell-offer-page/sell-offer-add/sell-offer-add.component';
-
+import { ResourcePageComponent } from './resource-page/resource-page.component';
+import { ResourceTableComponent } from './resource-page/resource-table/resource-table.component';
 
 @NgModule({
-  declarations: [HomePageComponent, UserPageComponent, UserComponent, SellOfferPageComponent, SellOfferTableComponent, SellOfferAddComponent , BuyOfferPageComponent, BuyOfferTableComponent, BuyOfferAddComponent, SellOfferAddComponent],
+  declarations: [HomePageComponent, UserPageComponent, UserComponent, SellOfferPageComponent, SellOfferTableComponent, BuyOfferPageComponent, BuyOfferTableComponent, BuyOfferAddComponent, ResourcePageComponent, ResourceTableComponent, SellOfferAddComponent],
   imports: [
     CommonModule,
     AngularMaterializeModule,
