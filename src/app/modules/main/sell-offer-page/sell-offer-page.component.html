@@ -1,2 +1,3 @@
 <p>sell-offer-page works!</p>
-<app-sell-offer-table></app-sell-offer-table>
+<button mat-flat-button color="primary" (click)="openAddSellOfferDialog()">Add</button>
+<app-sell-offer-table [sellOffers]="sellOffersService.sellOffers_0 | async"></app-sell-offer-table>

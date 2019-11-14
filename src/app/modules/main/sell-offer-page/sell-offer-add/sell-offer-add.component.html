@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Add sell offer</h1>
+<div mat-dialog-content>
+  <div class="example-container">
+    <mat-form-field>
+      <input type="number" [(ngModel)]="sellOffer.amount" matInput placeholder="Amount" name="amount">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="number" [(ngModel)]="sellOffer.price" matInput placeholder="Price" name="price">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Company" [(ngModel)]="sellOffer.companyId" name="companyId">
+        <mat-option *ngFor="let company of (data|async)" [value]="company.id">{{company.name}}</mat-option>
+
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-flat-button color="warning" (click)="onNoClick()">Cancel</button>
+  <button mat-flat-button color="primary" [mat-dialog-close]="sellOffer" cdkFocusInitial> Add sell offer</button>
+</div>
