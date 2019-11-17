@@ -8,8 +8,8 @@ import { Resource } from 'src/app/shared/models/Resource.model';
 })
 export class ResourceTableComponent implements OnInit {
   
-  private displayedColumns: string[] = ['id', 'amount', 'companyName', 'companyId' ];
-  private _resources: Resource[] = [];
+  displayedColumns: string[] = ['id', 'amount', 'companyName', 'companyId' ];
+  _resources: Resource[] = [];
   @Input("resources") set resources(value:Resource[]){
     if( value ){
       this._resources = value;

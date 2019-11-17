@@ -1,7 +1,4 @@
 <form class="example-form" (ngSubmit)="register()"  #f="ngForm">
-
-    <div class="loginFailure" *ngIf="loginFailure">Bad credentials</div>
-
     <br>
     <mat-form-field class="example-full-width">
         <input pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" matInput placeholder="Email" [(ngModel)]="user.email" name="email" required>

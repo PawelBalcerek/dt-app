@@ -8,11 +8,10 @@ import { ResourceService } from 'src/app/core/services/resource.service';
 })
 export class ResourcePageComponent implements OnInit {
 
-  constructor(private resourceService: ResourceService ) { }
+  constructor(public resourceService: ResourceService ) { }
 
   ngOnInit() {
     this.resourceService.getResources();
-    
   }
 
 }

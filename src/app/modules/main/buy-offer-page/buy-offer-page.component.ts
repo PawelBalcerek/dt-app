@@ -11,9 +11,9 @@ import { BuyOfferAddComponent } from './buy-offer-add/buy-offer-add.component';
 })
 export class BuyOfferPageComponent implements OnInit {
 
-  constructor( private buyOffersService: BuyOfferService, 
-              private companysService: CompanyService, 
-              public dialog: MatDialog) { }
+  constructor( public buyOffersService: BuyOfferService, 
+              public companysService: CompanyService, 
+               public dialog: MatDialog) { }
 
   ngOnInit() {
     

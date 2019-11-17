@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./buy-offer-add.component.css']
 })
 export class BuyOfferAddComponent implements OnInit {
-  private buyOffer: BuyOffer;
+  public buyOffer: BuyOffer;
 
   constructor(public dialogRef: MatDialogRef<BuyOfferAddComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Observable<Company[]>) {

@@ -9,8 +9,8 @@ import { User } from 'src/app/shared/models/User.model';
 })
 export class RegisterPageComponent implements OnInit {
 
-  private user:User = {email:"", name:"", password:""};
-  constructor(private authService:AuthService) { }
+  user:User = {email:"", name:"", password:""};
+  constructor(public authService:AuthService) { }
 
   ngOnInit() {
   }
