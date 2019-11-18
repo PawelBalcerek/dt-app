@@ -10,10 +10,10 @@ import { Subscription } from 'rxjs';
 })
 export class LoginPageComponent implements OnInit {
 
-  private email: string = "";
-  private password: string = "";
+  email: string = "";
+  password: string = "";
 
-  private loginFailure:boolean = false;
+  loginFailure:boolean = false;
   private route$:Subscription
 
   constructor(private authService: AuthService, 
