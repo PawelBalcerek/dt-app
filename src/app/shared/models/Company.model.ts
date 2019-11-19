@@ -3,4 +3,5 @@ export interface Company{
     name: string,
     userId: number
     
+    resourceAmount: number;
 }

@@ -8,7 +8,7 @@ import { BuyOfferService } from 'src/app/core/services/buy-offer.service';
   styleUrls: ['./buy-offer-table.component.css']
 })
 export class BuyOfferTableComponent implements OnInit {
-  public displayedColumns: string[] = ['id', 'amount', 'resourceId', 'maxPrice', 'date', 'isValid', 'withdraw'   ];
+  public displayedColumns: string[] = ['id', 'amount', 'companyName', 'price', 'date', 'isValid', 'withdraw'   ];
   public _buyOffers: BuyOffer[] = []; 
   @Input("buyOffers") set buyOffer(value: BuyOffer[]){
     this._buyOffers = value;

@@ -1,3 +1,6 @@
-<p>resource-page works!</p>
+<h3>Resources</h3>
+
+<button mat-flat-button color="primary" (click)="openAddDialog()">Add Company</button>
+<br />
 
 <app-resource-table [resources]="resourceService.resources_0 | async"></app-resource-table>

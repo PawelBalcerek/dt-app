@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>Add company</h1>
+<div mat-dialog-content>
+  <div class="example-container">
+    <mat-form-field>
+      <input type="text" [(ngModel)]="company.name" matInput placeholder="Name" name="name">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="number" [(ngModel)]="company.resourceAmount" matInput placeholder="Resource Amount" name="resourceAmount">
+    </mat-form-field>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-flat-button color="warning" (click)="onNoClick()">Cancel</button>
+  <button mat-flat-button color="primary" [mat-dialog-close]="company" cdkFocusInitial> Add company </button>
+</div>

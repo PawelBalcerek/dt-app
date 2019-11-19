@@ -5,6 +5,7 @@
       <a *ngIf="!(authService.authenticated_0|async)" mat-raised-button routerLink="register">Register</a>
       <a *ngIf="authService.authenticated_0|async" mat-raised-button routerLink="main/home">Home</a>
       <a *ngIf="authService.authenticated_0|async" mat-raised-button routerLink="main/resource" color="accent" >Resources</a>
+      <a *ngIf="authService.authenticated_0|async" mat-raised-button routerLink="main/transaction" color="accent" >Transactions</a>
       <a *ngIf="authService.authenticated_0|async" mat-raised-button routerLink="main/user" color="accent" >Account</a>
       <a *ngIf="authService.authenticated_0|async" mat-raised-button routerLink="main/sell-offer" color="accent" >Sell Offer</a>
       <a *ngIf="authService.authenticated_0|async"  mat-raised-button routerLink="main/buy-offer" color="accent" >Buy Offer</a>
