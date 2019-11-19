@@ -12,7 +12,7 @@ import {LoginPageComponent} from './core/login-page/login-page.component';
 import {JWTInterceptor} from './core/interceptors/JWTInterceptor';
 import {RegisterPageComponent} from './core/register-page/register-page.component';
 import {AppConfigService} from "./core/services/app-config.service";
-import {environment} from "../environments/environment.prod";
+import {environment} from "../environments/environment";
 
 const appInitializerFunction = (runtimeConfig: AppConfigService) => {
   return () => {
