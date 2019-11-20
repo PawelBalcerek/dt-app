@@ -1,4 +1,3 @@
-<p>sell-offer-table works!</p>
 <table mat-table [dataSource]="_sellOffers" class="mat-elevation-z8">
 
   <!-- Position Column -->
@@ -6,6 +5,11 @@
     <th mat-header-cell *matHeaderCellDef>id </th>
     <td mat-cell *matCellDef="let element"> {{element.id}} </td>
   </ng-container>
+
+  <ng-container matColumnDef="companyName">
+      <th mat-header-cell *matHeaderCellDef>Company Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.company.name}} </td>
+    </ng-container>
 
   <!-- Name Column -->
   <ng-container matColumnDef="amount">

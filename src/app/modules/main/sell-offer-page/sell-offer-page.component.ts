@@ -3,6 +3,7 @@ import { SellOffersService } from 'src/app/core/services/sell-offers.service';
 import { CompanyService } from 'src/app/core/services/company.service';
 import { MatDialog } from '@angular/material/dialog';
 import { SellOfferAddComponent } from './sell-offer-add/sell-offer-add.component';
+import { ResourceService } from 'src/app/core/services/resource.service';
 
 @Component({
   selector: 'app-sell-offer-page',
@@ -11,19 +12,21 @@ import { SellOfferAddComponent } from './sell-offer-add/sell-offer-add.component
 })
 export class SellOfferPageComponent implements OnInit {
 
-  constructor( private sellOffersService: SellOffersService,
-              private companysService: CompanyService,
+  constructor( public sellOffersService: SellOffersService,
+              public companysService: CompanyService,
+              public resourceService: ResourceService,
               public dialog: MatDialog) { }
 
   ngOnInit() {
     this.sellOffersService.getSellOffers();
-    this.companysService.getCompanies();
+    //this.companysService.getCompanies();
+    this.resourceService.getResources();
   }
 
   openAddSellOfferDialog(){
     const dialogRef = this.dialog.open(SellOfferAddComponent, {
       width: '400px',
-      data: this.companysService.company_0
+      data: this.resourceService.resources_0
     });
 
     dialogRef.afterClosed().subscribe(result => {

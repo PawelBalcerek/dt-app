@@ -1,15 +1,20 @@
-<form class="example-form" (ngSubmit)="login()">
+<div class="container" style="text-align: center; padding-top: 30px;">
+        <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 15px 48px 25px 48px;; border: 1px solid #EEE;">
 
-    <div class="loginFailure" *ngIf="loginFailure">Bad credentials</div>
-    
-    <br>
-    <mat-form-field class="example-full-width">
-        <input matInput placeholder="Email" [(ngModel)]="email" name="email" >
-    </mat-form-field>
-    <br>
-    <mat-form-field class="example-full-width">
-        <input matInput placeholder="Password" type="password" [(ngModel)]="password" name="password">
-    </mat-form-field>
-    <br>
-    <button mat-flat-button color="primary"> Login </button>
-</form>
+        <form class="example-form" (ngSubmit)="login()">
+
+            <div class="loginFailure" *ngIf="loginFailure">Bad credentials</div>
+            
+            <br>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Email" [(ngModel)]="email" name="email" >
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Password" type="password" [(ngModel)]="password" name="password">
+            </mat-form-field>
+            <br>
+            <button mat-flat-button color="primary"> Login </button>
+        </form>
+        </div>
+</div>

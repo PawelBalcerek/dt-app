@@ -1,19 +1,19 @@
 <h1 mat-dialog-title>Add sell offer</h1>
 <div mat-dialog-content>
   <div class="example-container">
+
     <mat-form-field>
-      <input type="number" [(ngModel)]="sellOffer.amount" matInput placeholder="Amount" name="amount">
+      <mat-select (selectionChange)="setResource()" placeholder="Resource" [(ngModel)]="resource" name="resourceId">
+        <mat-option *ngFor="let resource of (data|async)" [value]="resource">{{resource.company.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input (change)="checkMaxAmount()" type="number" [(ngModel)]="sellOffer.amount" matInput placeholder="Amount" name="amount">
     </mat-form-field>
 
     <mat-form-field>
       <input type="number" [(ngModel)]="sellOffer.price" matInput placeholder="Price" name="price">
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-select placeholder="Company" [(ngModel)]="sellOffer.companyId" name="companyId">
-        <mat-option *ngFor="let company of (data|async)" [value]="company.id">{{company.name}}</mat-option>
-
-      </mat-select>
     </mat-form-field>
   </div>
 </div>
