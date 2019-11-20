@@ -3,6 +3,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Company } from 'src/app/shared/models/Company.model';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { ResourceService } from './resource.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,8 @@ export class CompanyService {
   private _companies:BehaviorSubject<Company[]> = new BehaviorSubject<Company[]>(null);
   public  readonly company_0: Observable<Company[]> = this._companies.asObservable();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, 
+              public resourceService:ResourceService) { }
 
   public getCompanies(){
     let api = environment.apiUrl + "companies"; 
@@ -22,4 +24,15 @@ export class CompanyService {
         this._companies.next( companies );
       });
   }
+
+  public addNewCompany(company: Company){
+    let api = environment.apiUrl + "companies"; 
+
+    this.http.post<Company[]>( api, company )
+      .subscribe((data:any)=>{
+        this.resourceService.getResources();
+      });
+  }
+
+  
 }

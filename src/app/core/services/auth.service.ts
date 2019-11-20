@@ -25,7 +25,7 @@ export class AuthService {
     let api = environment.apiUrl + "login"
     this.http.post(api, {email: email, password: password})
       .subscribe((data:any)=>{
-        let jwtToken = data.jwttoken;
+        let jwtToken = data.jwt;
         console.log("jwt: " + jwtToken);
         this.setJWT( jwtToken );
         this.authenticated.next( true );
