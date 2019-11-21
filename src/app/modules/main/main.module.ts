@@ -11,6 +11,7 @@ import { BuyOfferPageComponent } from './buy-offer-page/buy-offer-page.component
 import { BuyOfferTableComponent } from './buy-offer-page/buy-offer-table/buy-offer-table.component';
 import { BuyOfferAddComponent } from './buy-offer-page/buy-offer-add/buy-offer-add.component'
 import { FormsModule } from '@angular/forms';
+import { SellOfferAddComponent } from './sell-offer-page/sell-offer-add/sell-offer-add.component';
 import { ResourcePageComponent } from './resource-page/resource-page.component';
 import { ResourceTableComponent } from './resource-page/resource-table/resource-table.component';
 import { AddCompanyDialogComponent } from './resource-page/add-company-dialog/add-company-dialog.component';
@@ -19,7 +20,7 @@ import { TransactionTableComponent } from './transaction-page/transaction-table/
 import { PipesModule } from 'src/app/shared/pipes/pipes.module';
 
 @NgModule({
-  declarations: [HomePageComponent, UserPageComponent, UserComponent, SellOfferPageComponent, SellOfferTableComponent, BuyOfferPageComponent, BuyOfferTableComponent, BuyOfferAddComponent, ResourcePageComponent, ResourceTableComponent, AddCompanyDialogComponent, TransactionPageComponent, TransactionTableComponent],
+  declarations: [HomePageComponent, UserPageComponent, UserComponent, SellOfferPageComponent, SellOfferTableComponent, BuyOfferPageComponent, BuyOfferTableComponent, BuyOfferAddComponent, ResourcePageComponent, ResourceTableComponent, SellOfferAddComponent, AddCompanyDialogComponent, TransactionPageComponent, TransactionTableComponent],
   entryComponents: [AddCompanyDialogComponent, BuyOfferAddComponent],
   imports: [
     CommonModule,

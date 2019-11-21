@@ -5,14 +5,19 @@ import { UserPageComponent } from './user-page/user-page.component';
 import { SellOfferPageComponent } from './sell-offer-page/sell-offer-page.component';
 import { BuyOfferPageComponent } from './buy-offer-page/buy-offer-page.component';
 import { BuyOfferAddComponent } from './buy-offer-page/buy-offer-add/buy-offer-add.component';
+import { SellOfferAddComponent } from './sell-offer-page/sell-offer-add/sell-offer-add.component';
 import { ResourcePageComponent } from './resource-page/resource-page.component';
 import { TransactionPageComponent } from './transaction-page/transaction-page.component';
 
 const routes: Routes = [
   { path: 'home', component: HomePageComponent }, 
   { path: 'user', component: UserPageComponent },
-  { path: 'sell-offer', component: SellOfferPageComponent },
-  { path: 'buy-offer', component: BuyOfferPageComponent },
+  { path: 'sell-offer', component: SellOfferPageComponent, children:[
+    { path: 'add', component: SellOfferAddComponent }
+  ] },
+  { path: 'buy-offer', component: BuyOfferPageComponent, children:[
+    { path: 'add', component: BuyOfferAddComponent }
+  ] },
   { path: 'transaction', component: TransactionPageComponent },
   {path: 'resource', component: ResourcePageComponent}
   ];
