@@ -1,24 +1,16 @@
-<div class="container" style="text-align: center; padding-top: 30px;">
-        <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 15px 48px 25px 48px;; border: 1px solid #EEE;">
-
-        <form class="example-form" (ngSubmit)="register()"  #f="ngForm">
-
-            <div class="loginFailure" *ngIf="loginFailure">Bad credentials</div>
-
-            <br>
-            <mat-form-field class="example-full-width">
-                <input pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" matInput placeholder="Email" [(ngModel)]="user.email" name="email" required>
-            </mat-form-field>
-            <br>
-            <mat-form-field class="example-full-width">
-                <input minlength="2" matInput placeholder="Name" [(ngModel)]="user.name" name="name" required>
-            </mat-form-field>
-            <br>
-            <mat-form-field class="example-full-width">
-                <input minlength="2" matInput placeholder="Password" type="password" [(ngModel)]="user.password" name="password" required>
-            </mat-form-field>
-            <br>
-            <button mat-flat-button color="primary" [disabled]="!f.valid"> Register </button>
-        </form>
-        </div>
-</div>
+<form class="example-form" (ngSubmit)="register()"  #f="ngForm">
+    <br>
+    <mat-form-field class="example-full-width">
+        <input pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" matInput placeholder="Email" [(ngModel)]="user.email" name="email" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+        <input minlength="2" matInput placeholder="Name" [(ngModel)]="user.name" name="name" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+        <input minlength="2" matInput placeholder="Password" type="password" [(ngModel)]="user.password" name="password" required>
+    </mat-form-field>
+    <br>
+    <button mat-flat-button color="primary" [disabled]="!f.valid"> Register </button>
+</form>

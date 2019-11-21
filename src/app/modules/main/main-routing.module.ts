@@ -7,6 +7,7 @@ import { BuyOfferPageComponent } from './buy-offer-page/buy-offer-page.component
 import { BuyOfferAddComponent } from './buy-offer-page/buy-offer-add/buy-offer-add.component';
 import { SellOfferAddComponent } from './sell-offer-page/sell-offer-add/sell-offer-add.component';
 import { ResourcePageComponent } from './resource-page/resource-page.component';
+import { TransactionPageComponent } from './transaction-page/transaction-page.component';
 
 const routes: Routes = [
   { path: 'home', component: HomePageComponent }, 
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'buy-offer', component: BuyOfferPageComponent, children:[
     { path: 'add', component: BuyOfferAddComponent }
   ] },
+  { path: 'transaction', component: TransactionPageComponent },
   {path: 'resource', component: ResourcePageComponent}
   ];
 

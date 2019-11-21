@@ -14,14 +14,20 @@ import { FormsModule } from '@angular/forms';
 import { SellOfferAddComponent } from './sell-offer-page/sell-offer-add/sell-offer-add.component';
 import { ResourcePageComponent } from './resource-page/resource-page.component';
 import { ResourceTableComponent } from './resource-page/resource-table/resource-table.component';
+import { AddCompanyDialogComponent } from './resource-page/add-company-dialog/add-company-dialog.component';
+import { TransactionPageComponent } from './transaction-page/transaction-page.component';
+import { TransactionTableComponent } from './transaction-page/transaction-table/transaction-table.component';
+import { PipesModule } from 'src/app/shared/pipes/pipes.module';
 
 @NgModule({
-  declarations: [HomePageComponent, UserPageComponent, UserComponent, SellOfferPageComponent, SellOfferTableComponent, BuyOfferPageComponent, BuyOfferTableComponent, BuyOfferAddComponent, ResourcePageComponent, ResourceTableComponent, SellOfferAddComponent],
+  declarations: [HomePageComponent, UserPageComponent, UserComponent, SellOfferPageComponent, SellOfferTableComponent, BuyOfferPageComponent, BuyOfferTableComponent, BuyOfferAddComponent, ResourcePageComponent, ResourceTableComponent, SellOfferAddComponent, AddCompanyDialogComponent, TransactionPageComponent, TransactionTableComponent],
+  entryComponents: [AddCompanyDialogComponent, BuyOfferAddComponent],
   imports: [
     CommonModule,
     AngularMaterializeModule,
     MainRoutingModule, 
-    FormsModule
+    FormsModule, 
+    PipesModule
   ]
 })
 export class MainModule { }
