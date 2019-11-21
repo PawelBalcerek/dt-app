@@ -16,7 +16,7 @@ export class TransactionService {
   constructor(public http: HttpClient) { }
 
   getTransactions(){
-    let api = environment.apiUrl + "/users/transactions"; 
+    let api = environment.apiUrl + "users/transactions"; 
     this.http.get<Company[]>( api )
     .subscribe((data:any)=>{
       let transactions: Transaction[] = data.transactions;
