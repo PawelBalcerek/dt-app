@@ -7,7 +7,7 @@ import { SellOffersService} from 'src/app/core/services/sell-offers.service';
   styleUrls: ['./sell-offer-table.component.css']
 })
 export class SellOfferTableComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'companyName', 'amount', 'resourceId', 'price', 'date', 'isValid', 'withdraw'   ];
+  displayedColumns: string[] = ['id', 'companyName', 'amount', 'price', 'date', 'isValid', 'withdraw'   ];
   _sellOffers: SellOffer[] = [];
   @Input("sellOffers") set SellOffer(value: SellOffer[]){
     this._sellOffers = value;
@@ -15,6 +15,10 @@ export class SellOfferTableComponent implements OnInit {
   constructor(public sellOfferService: SellOffersService) { }
 
   ngOnInit() {
+  }
+
+  withdrawSell(element: SellOffer){
+    this.sellOfferService.withdrawSellOffer(element);
   }
 
 }
