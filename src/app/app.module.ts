@@ -13,6 +13,7 @@ import {JWTInterceptor} from './core/interceptors/JWTInterceptor';
 import {RegisterPageComponent} from './core/register-page/register-page.component';
 import {AppConfigService} from "./core/services/app-config.service";
 import {environment} from "../environments/environment";
+import { AuthGuardService } from './core/guards/auth-guard.service';
 
 const appInitializerFunction = (runtimeConfig: AppConfigService) => {
   return () => {
@@ -55,7 +56,8 @@ const appInitializerFunction = (runtimeConfig: AppConfigService) => {
       provide: HTTP_INTERCEPTORS,
       useClass: JWTInterceptor,
       multi: true
-    }
+    }, 
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })
