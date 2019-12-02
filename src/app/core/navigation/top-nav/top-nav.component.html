@@ -10,5 +10,7 @@
       <a *ngIf="authService.authenticated_0|async" mat-raised-button routerLink="main/sell-offer" color="accent" >Sell Offer</a>
       <a *ngIf="authService.authenticated_0|async"  mat-raised-button routerLink="main/buy-offer" color="accent" >Buy Offer</a>
       <button *ngIf="authService.authenticated_0|async" mat-flat-button color="warn" (click)="logout()"> Log Out </button>
+      <span class="fill-remaining-space"></span>
+      <a mat-raised-button routerLink="tests">Tests</a>
     </mat-toolbar-row>
 </mat-toolbar>
