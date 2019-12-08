@@ -7,7 +7,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
-import { MatTabsModule } from '@angular/material';
+import { MatTabsModule, MatProgressSpinnerModule } from '@angular/material';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [],
@@ -20,7 +21,9 @@ import { MatTabsModule } from '@angular/material';
     MatSelectModule,
     MatDialogModule,
     MatTabsModule,
-    MatListModule
+    MatListModule,
+    MatProgressSpinnerModule,
+    MatIconModule
   ],
   exports: [
     MatToolbarModule,
@@ -30,7 +33,9 @@ import { MatTabsModule } from '@angular/material';
     MatSelectModule,
     MatDialogModule,
     MatTabsModule,
-    MatListModule
+    MatListModule,
+    MatProgressSpinnerModule,
+    MatIconModule
   ]
 })
 export class AngularMaterializeModule {}

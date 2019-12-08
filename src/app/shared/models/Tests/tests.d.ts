@@ -1,4 +1,16 @@
+import { MessageType } from "../enums/message-type.enum";
+
 export module Tests {
+
+
+  //requests
+
+  interface RunTestRequest {
+    testParametersId: number;
+  }
+
+
+  //responses
 
   interface GetTestsParametersResponse {
     testsParameters: TestParameters[]
@@ -15,6 +27,11 @@ export module Tests {
     maxBuyPrice: number;
     minSellPrice: number;
     maxSellPrice: number;
+  }
+
+  interface MessageBox {
+    type: MessageType;
+    message: string;
   }
 }
 

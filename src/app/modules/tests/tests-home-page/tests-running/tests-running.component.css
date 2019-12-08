@@ -1,3 +1,27 @@
-table{
+table {
   width: 100%;
+}
+
+.runTestLoader {
+  margin: auto;
+  margin-top: 20px;
+}
+
+.message {
+  padding: 15px;
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.message.success {
+  border: 1px solid #43A047;
+  background: #81c784;
+  box-shadow: 5px 1px 15px #43A047
+}
+
+.message.error {
+  border: 1px solid #EF5350;
+  background: #EF9A9A;
+  box-shadow: 5px 1px 15px #EF5350;
 }

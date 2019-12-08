@@ -1,18 +1,20 @@
+<div class="message" [ngClass]="{'success': messageBox.type === 0, 'error': messageBox.type === 1}" *ngIf="messageBox">{{messageBox.message}}</div>
+
 <div class="container" style="text-align: center; padding-top: 30px;">
   <div
     class="z-depth-1 grey lighten-4 row"
-    style="display: inline-block; padding: 10px 50px 20px 50px; border: 1px solid #EEE;"
-  >
+    style="display: inline-block; padding: 10px 50px 20px 50px; border: 1px solid #EEE;">
     <h4>Select test</h4>
     <mat-form-field>
-      <mat-select [(value)]="selectedTestParametersId" (selectionChange)="onTestParametersChanged()">
+      <mat-select [(value)]="selectedTestParametersId" (selectionChange)="onTestParametersChanged()" [disabled]="runTestLoader">
         <mat-option *ngFor="let testParameters of testsParameters" [value]="testParameters.testParametersId">
           {{ testParameters.testName }}
         </mat-option>
       </mat-select>
     </mat-form-field>
     <div>
-      <button mat-flat-button color="primary">Run</button>
+      <button mat-flat-button color="primary" (click)="runTest(selectedTestParametersId)" [disabled]="runTestLoader">Run</button>
+      <mat-spinner *ngIf="runTestLoader" class="runTestLoader"></mat-spinner>
     </div>
 
   </div>
