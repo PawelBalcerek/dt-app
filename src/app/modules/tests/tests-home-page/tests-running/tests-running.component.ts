@@ -1,6 +1,6 @@
 import { Testservice } from './../../../../core/services/tests.service';
 import { Subscription } from 'rxjs';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { Tests } from 'src/app/shared/models/Tests/tests';
 import { MessageType } from 'src/app/shared/models/enums/message-type.enum';
 
@@ -24,27 +24,23 @@ export class TestsRunningComponent implements OnInit, OnDestroy {
     'maxSellPrice'
   ];
   dataSource: Tests.TestParameters[] = [];
-  testsParametersSub: Subscription;
   runTestSub: Subscription;
-
   messageBox: Tests.MessageBox;
-
   runTestLoader = false;
+
+  @Input()
+  set TestsParameters(value: Tests.TestParameters[]) {
+    if (value && value.length > 0){
+      this.testsParameters = value;
+      this.selectedTestParametersId = this.testsParameters[0].testParametersId;
+      this.dataSource = [this.testsParameters[0]];
+    }
+  }
+
 
   constructor(private testservice: Testservice) {}
 
-  ngOnInit() {
-    this.testservice.getTestsParameters();
-    this.testsParametersSub = this.testservice.testsParametersObservable.subscribe(
-      testsParameters => {
-        if (testsParameters && testsParameters.length > 0 ) {
-          this.testsParameters = testsParameters;
-          this.selectedTestParametersId = this.testsParameters[0].testParametersId;
-          this.dataSource = [this.testsParameters[0]];
-        }
-      }
-    );
-  }
+  ngOnInit() { }
 
   onTestParametersChanged() {
     this.dataSource = [this.testsParameters.find(item => item.testParametersId === this.selectedTestParametersId)];
@@ -71,9 +67,6 @@ export class TestsRunningComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if (this.testsParametersSub){
-      this.testsParametersSub.unsubscribe();
-    }
     if (this.runTestSub){
       this.runTestSub.unsubscribe();
     }

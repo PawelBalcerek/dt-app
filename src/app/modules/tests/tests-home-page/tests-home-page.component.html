@@ -2,9 +2,9 @@
 
 <mat-tab-group>
   <mat-tab label="Running">
-    <app-tests-running></app-tests-running>
+    <app-tests-running [TestsParameters]="testservice.testsParametersObservable | async"></app-tests-running>
   </mat-tab>
   <mat-tab label="Configuration">
-    <app-tests-configuration></app-tests-configuration>
+    <app-tests-configuration [TestsParameters]="testservice.testsParametersObservable | async"></app-tests-configuration>
   </mat-tab>
 </mat-tab-group>

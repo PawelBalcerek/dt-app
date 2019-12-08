@@ -17,9 +17,13 @@ export module Tests {
   }
 
 
+  interface AddTestParametersResponse {
+    addedTestParameters: TestParameters
+  }
+
 
   interface TestParameters {
-    testParametersId: number;
+    testParametersId?: number;
     testName: string;
     numberOfUsers: number;
     numberOfRequests: number;

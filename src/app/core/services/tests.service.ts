@@ -22,6 +22,12 @@ export class Testservice {
       });
   }
 
+  public addTestParameters(testParameters: Tests.TestParameters) {
+    this.httpClient.post<Tests.AddTestParametersResponse>(environment.testsApiUrl + '/TestsParameters/Add', testParameters).subscribe(res => {
+        this.getTestsParameters();
+      });
+  }
+
   public runTest(testParametersId: number) {
     const request: Tests.RunTestRequest = { testParametersId };
     this.httpClient.post<void>(environment.testsApiUrl + '/Tests/RunTest', request).subscribe(() => {

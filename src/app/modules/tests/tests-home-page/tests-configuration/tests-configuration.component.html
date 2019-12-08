@@ -1,1 +1,49 @@
-<p>Tests configuration will be available soon!</p>
+<button mat-flat-button color="primary" (click)="openAddNewTestDialog()">Add new test</button>
+
+<div class="testsParametersTable">
+  <table mat-table [dataSource]="testsParameters" class="mat-elevation-z8" *ngIf="testsParameters && testsParameters.length > 0">
+
+    <ng-container matColumnDef="testParametersId">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.testParametersId}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="testName">
+      <th mat-header-cell *matHeaderCellDef> Test name </th>
+      <td mat-cell *matCellDef="let element"> {{element.testName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="numberOfUsers">
+      <th mat-header-cell *matHeaderCellDef> Number of users </th>
+      <td mat-cell *matCellDef="let element"> {{element.numberOfUsers}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="numberOfRequests">
+      <th mat-header-cell *matHeaderCellDef> Number of Requests </th>
+      <td mat-cell *matCellDef="let element"> {{element.numberOfRequests}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="minBuyPrice">
+      <th mat-header-cell *matHeaderCellDef> Minimum buy price </th>
+      <td mat-cell *matCellDef="let element"> {{element.minBuyPrice}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="maxBuyPrice">
+      <th mat-header-cell *matHeaderCellDef> Maximum buy price</th>
+      <td mat-cell *matCellDef="let element"> {{element.maxBuyPrice}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="minSellPrice">
+      <th mat-header-cell *matHeaderCellDef> Minimum sell price</th>
+      <td mat-cell *matCellDef="let element"> {{element.minSellPrice}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="maxSellPrice">
+      <th mat-header-cell *matHeaderCellDef> Maximum sell price </th>
+      <td mat-cell *matCellDef="let element"> {{element.maxSellPrice}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
