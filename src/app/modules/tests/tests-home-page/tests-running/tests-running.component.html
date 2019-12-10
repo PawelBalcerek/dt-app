@@ -1,0 +1,67 @@
+<div class="message" [ngClass]="{'success': messageBox.type === 0, 'error': messageBox.type === 1}" *ngIf="messageBox">{{messageBox.message}}</div>
+
+<div class="container" style="text-align: center; padding-top: 30px;">
+  <div
+    class="z-depth-1 grey lighten-4 row"
+    style="display: inline-block; padding: 10px 50px 20px 50px; border: 1px solid #EEE;">
+    <h4>Select test</h4>
+    <mat-form-field>
+      <mat-select [(value)]="selectedTestParametersId" (selectionChange)="onTestParametersChanged()" [disabled]="runTestLoader">
+        <mat-option *ngFor="let testParameters of testsParameters" [value]="testParameters.testParametersId">
+          {{ testParameters.testName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div>
+      <button mat-flat-button color="primary" (click)="runTest(selectedTestParametersId)" [disabled]="runTestLoader">Run</button>
+      <mat-spinner *ngIf="runTestLoader" class="runTestLoader"></mat-spinner>
+    </div>
+
+  </div>
+</div>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngIf="testsParameters && testsParameters.length > 0">
+
+    <ng-container matColumnDef="testParametersId">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.testParametersId}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="testName">
+      <th mat-header-cell *matHeaderCellDef> Test name </th>
+      <td mat-cell *matCellDef="let element"> {{element.testName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="numberOfUsers">
+      <th mat-header-cell *matHeaderCellDef> Number of users </th>
+      <td mat-cell *matCellDef="let element"> {{element.numberOfUsers}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="numberOfRequests">
+      <th mat-header-cell *matHeaderCellDef> Number of Requests </th>
+      <td mat-cell *matCellDef="let element"> {{element.numberOfRequests}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="minBuyPrice">
+      <th mat-header-cell *matHeaderCellDef> Minimum buy price </th>
+      <td mat-cell *matCellDef="let element"> {{element.minBuyPrice}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="maxBuyPrice">
+      <th mat-header-cell *matHeaderCellDef> Maximum buy price</th>
+      <td mat-cell *matCellDef="let element"> {{element.maxBuyPrice}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="minSellPrice">
+      <th mat-header-cell *matHeaderCellDef> Minimum sell price</th>
+      <td mat-cell *matCellDef="let element"> {{element.minSellPrice}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="maxSellPrice">
+      <th mat-header-cell *matHeaderCellDef> Maximum sell price </th>
+      <td mat-cell *matCellDef="let element"> {{element.maxSellPrice}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
