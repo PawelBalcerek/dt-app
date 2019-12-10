@@ -8,9 +8,11 @@ import { TestsRunningComponent } from './tests-home-page/tests-running/tests-run
 import { TestsReportsHomePageComponent } from './reports/tests-reports-home-page/tests-reports-home-page.component';
 import { TestsConfigurationComponent } from './tests-home-page/tests-configuration/tests-configuration.component';
 import { TestConfigurationAddComponent } from './tests-home-page/tests-configuration/test-configuration-add/test-configuration-add.component';
+import { AverageEndpointsExecutionsTimeComponent } from './reports/average-endpoints-executions-time/average-endpoints-executions-time.component';
+import { AverageEndpointsExecutionsTimeChartComponent } from './reports/average-endpoints-executions-time/average-endpoints-executions-time-chart/average-endpoints-executions-time-chart.component';
 
 @NgModule({
-  declarations: [TestsHomePageComponent, TestsRunningComponent, TestsReportsHomePageComponent, TestsConfigurationComponent, TestConfigurationAddComponent],
+  declarations: [TestsHomePageComponent, TestsRunningComponent, TestsReportsHomePageComponent, TestsConfigurationComponent, TestConfigurationAddComponent, AverageEndpointsExecutionsTimeComponent, AverageEndpointsExecutionsTimeChartComponent],
   entryComponents: [
     TestConfigurationAddComponent
   ],

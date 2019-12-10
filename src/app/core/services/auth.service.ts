@@ -72,7 +72,7 @@ export class AuthService {
       })
   } 
 
-  private logout(redirectToLoginPage: boolean = false){
+  private logout(redirectToLoginPage: boolean = true){
     this.authenticated.next( false );
     this._user.next( null );
     this.deleteJWT();
