@@ -1,5 +1,4 @@
-<p>average-endpoints-executions-time works!</p>
-
+<h3>Average Endpoints Executions Time Chart</h3>
 <div class="container" style="text-align: center; padding-top: 30px;">
     <div
       class="z-depth-1 grey lighten-4 row"
@@ -16,6 +15,8 @@
     </div>
 
     <div>
-        <button (click)="draw()">Draw</button>
+        <button mat-flat-button color="primary"  (click)="selectTestParameter()">Select  testParameter</button>
     </div>
   </div>
+
+  <app-average-endpoints-executions-time-chart [averageEndpointsExecutionTime]="(reportService.averageEndpointsExecutionTimes_0|async)"></app-average-endpoints-executions-time-chart>

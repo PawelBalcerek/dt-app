@@ -1,0 +1,30 @@
+
+  <mat-form-field>
+    <mat-select [(value)]="chartType">
+      <mat-option [value]="'pie'">pie</mat-option>
+      <mat-option [value]="'doughnut'">doughnut</mat-option>
+      <mat-option [value]="'bar'">bar</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select [(value)]="colorType">
+      <mat-option [value]="'interpolateRainbow'">interpolateRainbow</mat-option>
+      <mat-option [value]="'interpolatePlasma'">interpolatePlasma</mat-option>
+      <mat-option [value]="'interpolateGreys'">interpolateGreys</mat-option>
+      <mat-option [value]="'interpolateViridis'">interpolateViridis</mat-option>
+      <mat-option [value]="'interpolateCubehelixDefault'">interpolateCubehelixDefault</mat-option>
+      <mat-option [value]="'interpolateSpectral'">interpolateSpectral</mat-option>
+      <mat-option [value]="'interpolatePuBu'">interpolatePuBu</mat-option>
+
+    </mat-select>
+  </mat-form-field>
+  
+  <button class="pb-btn-primary" (click)="downloadImage()"><i class="fa fa-download" aria-hidden="true"></i>download Image</button>
+  
+  <div *ngIf="chart" style="position: relative;">
+    <!-- CANVAS który wyswietla wykres-->
+    <canvas #myCanvas style="background-color: #fff;"></canvas>
+    <!-- CANVAS ukryty który jest wypeleniany w momencie pobierania -->
+    <canvas #canvasDownload style="display: none;"></canvas>
+  </div>

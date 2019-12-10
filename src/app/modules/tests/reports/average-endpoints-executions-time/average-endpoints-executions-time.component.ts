@@ -14,10 +14,11 @@ export class AverageEndpointsExecutionsTimeComponent implements OnInit {
 
   ngOnInit() {
     this.testService.getTestsParameters();
-    
   }
 
-  draw(){
+  
+
+  selectTestParameter(){
     if( this.selectedTestParameter ){
       this.reportService.getAverageEnpointsExecutionTimes( this.selectedTestParameter.testParametersId );
     }
