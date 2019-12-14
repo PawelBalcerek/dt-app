@@ -1,0 +1,35 @@
+<h1 mat-dialog-title>Add new test</h1>
+<div mat-dialog-content>
+  <div class="example-container">
+    <mat-form-field>
+      <input type="text" [(ngModel)]="testsParameters.testName" matInput placeholder="Test name" name="testName">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="number" [(ngModel)]="testsParameters.numberOfUsers" matInput placeholder="Number of users" name="numberOfUsers">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="number" [(ngModel)]="testsParameters.numberOfRequests" matInput placeholder="Number of requests" name="numberOfRequests">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="number" [(ngModel)]="testsParameters.minSellPrice" matInput placeholder="Minimum sell price" name="minSellPrice">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="number" [(ngModel)]="testsParameters.maxSellPrice" matInput placeholder="Maximum sell price" name="maxSellPrice">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="number" [(ngModel)]="testsParameters.minBuyPrice" matInput placeholder="Minimum buy price" name="minBuyPrice">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="number" [(ngModel)]="testsParameters.maxBuyPrice" matInput placeholder="Maximum buy price" name="maxBuyPrice">
+    </mat-form-field>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-flat-button color="primary" [mat-dialog-close]="testsParameters" cdkFocusInitial> Add new test</button>
+</div>

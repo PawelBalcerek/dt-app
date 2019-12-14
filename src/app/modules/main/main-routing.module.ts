@@ -8,18 +8,19 @@ import { BuyOfferAddComponent } from './buy-offer-page/buy-offer-add/buy-offer-a
 import { SellOfferAddComponent } from './sell-offer-page/sell-offer-add/sell-offer-add.component';
 import { ResourcePageComponent } from './resource-page/resource-page.component';
 import { TransactionPageComponent } from './transaction-page/transaction-page.component';
+import { AuthGuardService } from 'src/app/core/guards/auth-guard.service';
 
 const routes: Routes = [
-  { path: 'home', component: HomePageComponent }, 
-  { path: 'user', component: UserPageComponent },
+  { path: 'home', component: HomePageComponent, canActivate: [AuthGuardService] }, 
+  { path: 'user', component: UserPageComponent, canActivate: [AuthGuardService] },
   { path: 'sell-offer', component: SellOfferPageComponent, children:[
     { path: 'add', component: SellOfferAddComponent }
-  ] },
+  ], canActivate: [AuthGuardService] },
   { path: 'buy-offer', component: BuyOfferPageComponent, children:[
     { path: 'add', component: BuyOfferAddComponent }
-  ] },
-  { path: 'transaction', component: TransactionPageComponent },
-  {path: 'resource', component: ResourcePageComponent}
+  ], canActivate: [AuthGuardService] },
+  { path: 'transaction', component: TransactionPageComponent, canActivate: [AuthGuardService] },
+  {path: 'resource', component: ResourcePageComponent, canActivate: [AuthGuardService]}
   ];
 
 @NgModule({

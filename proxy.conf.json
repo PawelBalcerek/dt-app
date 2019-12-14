@@ -1,8 +1,12 @@
-{  
-    "/api": {  
-       "target": "http://javatestai.ddns.net:8081",  
-       "secure": false,  
-       "logLevel": "debug"  
-    }  
- }  
- 
+{
+    "/api": {
+       "target": "http://net-core-ai.eastus.cloudapp.azure.com",
+       "secure": false,
+       "logLevel": "debug"
+    },
+    "/testapi": {
+      "target": "http://net-core-ai.eastus.cloudapp.azure.com",
+      "secure": false,
+      "logLevel": "debug"
+   }
+ }

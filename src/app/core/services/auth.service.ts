@@ -40,8 +40,12 @@ export class AuthService {
     if(localStorage.getItem(this.JWT_KEY)!=null){
       this.getUser();      
     }else{
-      this.logout();
+      this.logout(false);
     }
+  }
+
+  public isAuthenticated():boolean{
+    return this.authenticated.value;
   }
 
   public getUser(){
@@ -68,11 +72,13 @@ export class AuthService {
       })
   } 
 
-  private logout(){
+  private logout(redirectToLoginPage: boolean = true){
     this.authenticated.next( false );
     this._user.next( null );
     this.deleteJWT();
-    this.router.navigate(["/login"]);
+    if( redirectToLoginPage ){
+      this.router.navigate(["/login"]);
+    }
   }
 
   public register(user:User){

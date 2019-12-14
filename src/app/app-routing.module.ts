@@ -5,9 +5,13 @@ import { RegisterPageComponent } from './core/register-page/register-page.compon
 
 
 const routes: Routes = [
-  { path: 'main', loadChildren: () => import('./modules/main/main.module').then(m => m.MainModule) }, 
-  { path: 'home', loadChildren: () => import('./modules/main/main.module').then(m => m.MainModule) }, 
-  { path:'login', component: LoginPageComponent }, 
+  { path: 'main', loadChildren: () => import('./modules/main/main.module').then(m => m.MainModule) },
+  { path: 'home', loadChildren: () => import('./modules/main/main.module').then(m => m.MainModule) },
+  {
+    path: 'tests',
+    loadChildren: () => import('./modules/tests/tests.module').then(m => m.TestsModule)
+  },
+  { path:'login', component: LoginPageComponent },
   { path:'register', component: RegisterPageComponent }
 ];
 

@@ -1,0 +1,11 @@
+.testsParametersTable {
+  overflow: auto;
+  max-height: 600px;
+  margin-top: 10px;
+}
+
+.testsParametersTable table {
+  width: 99%;
+  margin: auto;
+  margin-top: 10px;
+}
