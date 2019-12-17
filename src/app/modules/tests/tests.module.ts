@@ -11,9 +11,11 @@ import { TestConfigurationAddComponent } from './tests-home-page/tests-configura
 import { AverageEndpointsExecutionsTimeComponent } from './reports/average-endpoints-executions-time/average-endpoints-executions-time.component';
 import { AverageEndpointsExecutionsTimeChartComponent } from './reports/average-endpoints-executions-time/average-endpoints-executions-time-chart/average-endpoints-executions-time-chart.component';
 import { ComponentsModule } from 'src/app/shared/components/components.module';
+import { UsersEndpointExecutionTimesComponent } from './reports/users-endpoint-execution-times/users-endpoint-execution-times.component';
+import { UsersEndpointExecutionTimesChartComponent } from './reports/users-endpoint-execution-times/users-endpoint-execution-times-chart/users-endpoint-execution-times-chart.component';
 
 @NgModule({
-  declarations: [TestsHomePageComponent, TestsRunningComponent, TestsReportsHomePageComponent, TestsConfigurationComponent, TestConfigurationAddComponent, AverageEndpointsExecutionsTimeComponent, AverageEndpointsExecutionsTimeChartComponent],
+  declarations: [TestsHomePageComponent, TestsRunningComponent, TestsReportsHomePageComponent, TestsConfigurationComponent, TestConfigurationAddComponent, AverageEndpointsExecutionsTimeComponent, AverageEndpointsExecutionsTimeChartComponent, UsersEndpointExecutionTimesComponent, UsersEndpointExecutionTimesChartComponent],
   entryComponents: [
     TestConfigurationAddComponent
   ],
