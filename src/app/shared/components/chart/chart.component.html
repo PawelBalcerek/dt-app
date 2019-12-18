@@ -1,6 +1,7 @@
 
   <mat-form-field>
-    <mat-select [(value)]="chartType">
+    <mat-select [(value)]="chartType" (selectionChange)="changeChartType(chartType)">
+      <mat-option [value]="'line'">line</mat-option>
       <mat-option [value]="'pie'">pie</mat-option>
       <mat-option [value]="'doughnut'">doughnut</mat-option>
       <mat-option [value]="'bar'">bar</mat-option>
@@ -8,7 +9,7 @@
   </mat-form-field>
 
   <mat-form-field>
-    <mat-select [(value)]="colorType">
+    <mat-select [(value)]="colorType" (selectionChange)="changeColorType(colorType)">
       <mat-option [value]="'interpolateRainbow'">interpolateRainbow</mat-option>
       <mat-option [value]="'interpolatePlasma'">interpolatePlasma</mat-option>
       <mat-option [value]="'interpolateGreys'">interpolateGreys</mat-option>

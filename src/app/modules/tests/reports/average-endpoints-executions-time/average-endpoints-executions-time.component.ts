@@ -24,4 +24,8 @@ export class AverageEndpointsExecutionsTimeComponent implements OnInit {
     }
   }
 
+  ngOnDestroy(){
+    this.reportService.clearAverageEnpointsExecutionTimes();
+  }
+
 }

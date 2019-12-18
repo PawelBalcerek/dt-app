@@ -21,4 +21,29 @@ export module Reports{
     endpointName: string;
     httpMethod: string;
   }
+  
+  
+  //--------USER------
+
+  interface GetEndpointsResponseModel{
+    endpoints: Endpoint[];
+  }
+
+  interface GetUsersEndpointExecutionTimes{
+    usersEndpointExecutionTimes: UserEndpointExecutionTimes[]
+  }
+
+  interface ExecutionTimesWithStamp {
+        timeStamp: Date;
+        databaseTestTime: number;
+        applicationTestTime: number;
+        apiTestTime: number;
+  }
+
+  interface UserEndpointExecutionTimes {
+      userId: number;
+      endpoint: Endpoint;
+      executionTimesWithStamps: ExecutionTimesWithStamp[];
+  }
+
 }
