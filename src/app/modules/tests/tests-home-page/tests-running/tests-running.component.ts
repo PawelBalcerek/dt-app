@@ -25,50 +25,82 @@ export class TestsRunningComponent implements OnInit, OnDestroy {
   ];
   dataSource: Tests.TestParameters[] = [];
   runTestSub: Subscription;
+  clearDbSub: Subscription;
   messageBox: Tests.MessageBox;
   runTestLoader = false;
 
   @Input()
   set TestsParameters(value: Tests.TestParameters[]) {
-    if (value && value.length > 0){
+    if (value && value.length > 0) {
       this.testsParameters = value;
       this.selectedTestParametersId = this.testsParameters[0].testParametersId;
       this.dataSource = [this.testsParameters[0]];
     }
   }
 
-
   constructor(private testservice: Testservice) {}
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   onTestParametersChanged() {
-    this.dataSource = [this.testsParameters.find(item => item.testParametersId === this.selectedTestParametersId)];
+    this.dataSource = [
+      this.testsParameters.find(
+        item => item.testParametersId === this.selectedTestParametersId
+      )
+    ];
   }
 
   runTest(testParametersId: number) {
     this.messageBox = undefined;
     this.runTestLoader = true;
     this.testservice.runTest(testParametersId);
-    this.runTestSub = this.testservice.runTestResultObservable.subscribe((success) => {
-      if (success) {
-        this.messageBox = {
-          type: MessageType.Success,
-          message: 'Test successful'
-        };
-      } else {
-        this.messageBox = {
-          type: MessageType.Error,
-          message: 'Test failed'
-        };
+    this.runTestSub = this.testservice.runTestResultObservable.subscribe(
+      success => {
+        if (success) {
+          this.messageBox = {
+            type: MessageType.Success,
+            message: 'Test successful'
+          };
+        } else {
+          this.messageBox = {
+            type: MessageType.Error,
+            message: 'Test failed'
+          };
+        }
+        this.runTestLoader = false;
       }
-      this.runTestLoader = false;
-    });
+    );
+  }
+
+  clearDatabase() {
+    this.messageBox = undefined;
+    this.runTestLoader = true;
+    this.testservice.clearClientDatabase();
+    this.clearDbSub = this.testservice.clearClientDbResultObservable.subscribe(
+      success => {
+        if (success) {
+          this.messageBox = {
+            type: MessageType.Success,
+            message: 'Client database has been successfully cleaned'
+          };
+        } else {
+          this.messageBox = {
+            type: MessageType.Error,
+            message: 'Database cleanup failed'
+          };
+        }
+        this.runTestLoader = false;
+      }
+    );
   }
 
   ngOnDestroy(): void {
-    if (this.runTestSub){
+    if (this.runTestSub) {
       this.runTestSub.unsubscribe();
+    }
+
+    if (this.clearDbSub) {
+      this.clearDbSub.unsubscribe();
     }
   }
 }

@@ -14,6 +14,9 @@ export class Testservice {
   private runTestResult: Subject<boolean> = new Subject();
   public readonly runTestResultObservable = this.runTestResult.asObservable();
 
+  private clearClientDbResult: Subject<boolean> = new Subject();
+  public readonly clearClientDbResultObservable = this.clearClientDbResult.asObservable();
+
   constructor(private httpClient: HttpClient) {}
 
   public getTestsParameters() {
@@ -34,6 +37,14 @@ export class Testservice {
         this.runTestResult.next(true);
       }, () => {
         this.runTestResult.next(false);
+      });
+  }
+
+  public clearClientDatabase() {
+    this.httpClient.delete<void>(environment.apiUrl + '/database/purge').subscribe(() => {
+        this.clearClientDbResult.next(true);
+      }, () => {
+        this.clearClientDbResult.next(false);
       });
   }
 }
