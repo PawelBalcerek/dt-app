@@ -1,0 +1,46 @@
+<h3>Users Endpoint Execution Times Chart</h3>
+<div class="container" style="text-align: center; padding-top: 30px;">
+    <div
+      class="z-depth-1 grey lighten-4 row"
+      style="display: inline-block; padding: 10px 50px 20px 50px; border: 1px solid #EEE;">
+      <h4>Select test</h4>
+      <mat-form-field>
+        <mat-select [(value)]="selectedTestParameter">
+          <mat-option *ngFor="let testParameters of (testService.testsParametersObservable|async)" [value]="testParameters">
+            {{ testParameters.testName }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div
+    class="z-depth-1 grey lighten-4 row"
+    style="display: inline-block; margin-left: 50px; padding: 10px 50px 20px 50px; border: 1px solid #EEE;">
+    <h4>Select endpoint</h4>
+    <mat-form-field>
+      <mat-select [(value)]="selectedEndpoint">
+        <mat-option *ngFor="let endpoint of (reportService.enpoints_0|async)" [value]="endpoint">
+          {{ endpoint.endpointId }}-{{ endpoint.endpointName }}-{{ endpoint.httpMethod }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    </div>
+
+    <div class="z-depth-1 grey lighten-4 row"
+    style="display: inline-block; margin-left: 50px; padding: 10px 50px 20px 50px; border: 1px solid #EEE;">
+    <h4>Select user</h4>
+    <mat-form-field>
+      <mat-select [(value)]="selectedUser" [disabled]="users.length==0" (selectionChange)="userChanged()">
+        <mat-option *ngFor="let user of users" [value]="user">
+          user-{{ user }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    </div>
+
+    <div>
+        <button mat-flat-button color="primary"  (click)="getData()" [disabled]="selectedEndpoint==null || selectedTestParameter==null">Get Data</button>
+    </div>
+  </div>
+
+  <app-users-endpoint-execution-times-chart *ngIf="selectedUserEndpointExecutionTimes!=null" [userEndpointTimes]="selectedUserEndpointExecutionTimes"></app-users-endpoint-execution-times-chart>
