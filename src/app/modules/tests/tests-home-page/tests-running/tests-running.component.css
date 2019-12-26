@@ -15,13 +15,17 @@ table {
 }
 
 .message.success {
-  border: 1px solid #43A047;
+  border: 1px solid #43a047;
   background: #81c784;
-  box-shadow: 5px 1px 15px #43A047
+  box-shadow: 5px 1px 15px #43a047;
 }
 
 .message.error {
-  border: 1px solid #EF5350;
-  background: #EF9A9A;
-  box-shadow: 5px 1px 15px #EF5350;
+  border: 1px solid #ef5350;
+  background: #ef9a9a;
+  box-shadow: 5px 1px 15px #ef5350;
+}
+
+.clearDbBtn {
+  margin-right: 10px;
 }

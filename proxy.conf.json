@@ -1,11 +1,11 @@
 {
     "/api": {
-       "target": "http://net-core-ai.eastus.cloudapp.azure.com",
+       "target": "http://net-core-aplint.eastus.cloudapp.azure.com/",
        "secure": false,
        "logLevel": "debug"
     },
     "/testapi": {
-      "target": "http://net-core-ai.eastus.cloudapp.azure.com",
+      "target": "http://net-core-aplint.eastus.cloudapp.azure.com/",
       "secure": false,
       "logLevel": "debug"
    }

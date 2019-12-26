@@ -13,6 +13,7 @@
       </mat-select>
     </mat-form-field>
     <div>
+      <button mat-flat-button color="warn" (click)="clearDatabase()" [disabled]="runTestLoader" class="clearDbBtn">Clear database</button>
       <button mat-flat-button color="primary" (click)="runTest(selectedTestParametersId)" [disabled]="runTestLoader">Run</button>
       <mat-spinner *ngIf="runTestLoader" class="runTestLoader"></mat-spinner>
     </div>
