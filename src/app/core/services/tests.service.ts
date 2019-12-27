@@ -41,7 +41,7 @@ export class Testservice {
   }
 
   public clearClientDatabase() {
-    this.httpClient.delete<void>(environment.apiUrl + '/database/purge').subscribe(() => {
+    this.httpClient.delete<void>(environment.apiUrl + 'database/purge').subscribe(() => {
         this.clearClientDbResult.next(true);
       }, () => {
         this.clearClientDbResult.next(false);
