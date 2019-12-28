@@ -40,6 +40,7 @@
 
     <div>
         <button mat-flat-button color="primary"  (click)="getData()" [disabled]="selectedEndpoint==null || selectedTestParameter==null">Get Data</button>
+        <button mat-stroked-button color="primary" (click)="getZipFile()" class="getZipCsvButton" [disabled]="!selectedTestParameter">Get ZIP(CSVs)</button>
     </div>
   </div>
 

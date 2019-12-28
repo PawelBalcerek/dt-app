@@ -9,23 +9,32 @@ import { ReportsService } from 'src/app/core/services/reports.service';
   styleUrls: ['./average-endpoints-executions-time.component.css']
 })
 export class AverageEndpointsExecutionsTimeComponent implements OnInit {
-  selectedTestParameter : Tests.TestParameters;
-  constructor(public testService: Testservice, public reportService:ReportsService) { }
+  selectedTestParameter: Tests.TestParameters;
+
+  constructor(
+    public testService: Testservice,
+    public reportService: ReportsService
+  ) {}
 
   ngOnInit() {
     this.testService.getTestsParameters();
   }
 
-  
-
-  selectTestParameter(){
-    if( this.selectedTestParameter ){
-      this.reportService.getAverageEnpointsExecutionTimes( this.selectedTestParameter.testParametersId );
+  selectTestParameter() {
+    if (this.selectedTestParameter) {
+      this.reportService.getAverageEnpointsExecutionTimes(
+        this.selectedTestParameter.testParametersId
+      );
     }
   }
 
-  ngOnDestroy(){
-    this.reportService.clearAverageEnpointsExecutionTimes();
+  getCsvFile() {
+    if (this.selectedTestParameter) {
+      this.reportService.getAverageEnpointsExecutionTimesCsv(this.selectedTestParameter.testParametersId);
+    }
   }
 
+  ngOnDestroy() {
+    this.reportService.clearAverageEnpointsExecutionTimes();
+  }
 }

@@ -12,7 +12,7 @@ import { Subscription } from 'rxjs';
 })
 export class UsersEndpointExecutionTimesComponent implements OnInit {
   selectedTestParameter : Tests.TestParameters;
-  selectedEndpoint: Reports.Endpoint; 
+  selectedEndpoint: Reports.Endpoint;
 
   usersEndpointExecutionTimes: Reports.UserEndpointExecutionTimes[];
   userEndpointExecutionTimes$: Subscription;
@@ -24,7 +24,7 @@ export class UsersEndpointExecutionTimesComponent implements OnInit {
   constructor(public testService: Testservice, public reportService:ReportsService) { }
 
   ngOnInit() {
-    
+
     this.testService.getTestsParameters();
     this.reportService.getEndpoints();
 
@@ -53,6 +53,12 @@ export class UsersEndpointExecutionTimesComponent implements OnInit {
     const uETIndex = this.usersEndpointExecutionTimes.findIndex( x=> x.userId==this.selectedUser );
     const uEt = uETIndex!=-1 ? this.usersEndpointExecutionTimes[uETIndex] : null;
     this.selectedUserEndpointExecutionTimes = Object.assign({}, uEt );
+  }
+
+  getZipFile(){
+    if (this.selectedTestParameter != null ) {
+      this.reportService.getUsersEndpointsExecutionTimesCsv(this.selectedTestParameter.testParametersId);
+    }
   }
 
   ngOnDestroy(){
