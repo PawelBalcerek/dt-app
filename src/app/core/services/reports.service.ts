@@ -80,7 +80,7 @@ export class ReportsService {
     let params = new HttpParams();
     params = params.append('testParametersId', String(testParametersId));
 
-    this.http.get<Reports.GetUsersEndpointExecutionTimes>(api, { params: params, observe: 'response', responseType: 'arraybuffer'}).subscribe(response => {
+    this.http.get<Reports.GetUsersEndpointExecutionTimes>(api, { params: params, observe: 'response', responseType: 'arraybuffer' as 'json'}).subscribe(response => {
           this.downloadFile(response, 'text/csv');
         });
   }
@@ -90,7 +90,7 @@ export class ReportsService {
     let params = new HttpParams();
     params = params.append('testParametersId', String(testParametersId));
 
-    this.http.get<Reports.GetUsersEndpointExecutionTimes>(api, { params: params, observe: 'response', responseType: 'arraybuffer'}).subscribe(response => {
+    this.http.get<Reports.GetUsersEndpointExecutionTimes>(api, { params: params, observe: 'response', responseType: 'arraybuffer' as 'json'}).subscribe(response => {
           this.downloadFile(response, 'application/zip');
         });
   }
