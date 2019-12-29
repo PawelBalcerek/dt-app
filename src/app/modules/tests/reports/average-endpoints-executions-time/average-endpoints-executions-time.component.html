@@ -15,7 +15,8 @@
     </div>
 
     <div>
-        <button mat-flat-button color="primary"  (click)="selectTestParameter()">Select  testParameter</button>
+        <button mat-flat-button color="primary" (click)="selectTestParameter()" [disabled]="!selectedTestParameter">Select testParameter</button>
+        <button mat-stroked-button color="primary" (click)="getCsvFile()" class="getCsvButton" [disabled]="!selectedTestParameter">Get CSV</button>
     </div>
   </div>
 
